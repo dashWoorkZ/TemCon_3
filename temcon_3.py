@@ -1008,7 +1008,7 @@ def open_splash_window():
         tc_frame.grid(row=0, column=0, sticky="nsew")
         tc_title_frame = tk.Frame(temcon_title_frame)
         title_label = ttk.Label(tc_title_frame)
-        title_label.configure(text="TemCon 2.1", font=("Roboto, sans-serif", 14, "bold"), anchor="center", justify="center", foreground="#448d76", background="#c4ecc4")
+        title_label.configure(text="TemCon 3", font=("Roboto, sans-serif", 14, "bold"), anchor="center", justify="center", foreground="#448d76", background="#c4ecc4")
         title_label.grid(row=0, column=0, sticky="nsew", ipadx=10)
         title_desc_label= ttk.Label(tc_title_frame,text="Weather Reporting\n Temperature Conversion Tool", font=("Times New roman", 10, "bold"), anchor="center", justify="center", foreground="#448d76", background="#c4ecc4")
         title_desc_label.grid(row=1, column=0, sticky="nsew", ipady=3, ipadx=10)
