@@ -2,7 +2,7 @@
 Third iteration of a weather reporting temperature conversion tool
 Python / Pillow program, live weather reporting, selective scale display, manual weather reporting and manual temperature conversion tool. Python / Pillow program that can retrieve the weather temperature, using OpenWeather Map API, the program will convert temperatures in manual mode that include Kelvin Celcius, Fahrenheit and Rankine, in live mode, the program will convert into Kelvin, Fahrenheit and Rankine and Celcius, scale selection for personalized display
 
-For instructions on how to setup TemCon 2.1 goto https://dashwoorkz.ca/
+For instructions on how to setup TemCon 3 goto https://dashwoorkz.ca/
 
 All Rights Reserved - Without Prejudice dashWoorkz Sovereign Society Managing Director: Dash: La Londe Software Program: TemCon 3 Description: Temperature Conversion tool, converts Celcius into Kelvin, Fahrenheit and Rankine, Real-time current weather reporting using Openweather Map API, selective scale display, Manual and Live Mode
 
