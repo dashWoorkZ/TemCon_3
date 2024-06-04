@@ -384,6 +384,19 @@ def completeError700():
         error_label.configure(bg="#ca8888", fg="#9932cc", font=("Roboto, sans-serif", 14, "bold"), wraplength=290,  text="!!! Error 642 !!!\n!!! City Not Entered !!!\nPlease Choose A Scale and enter a temperature To Convert!!")
         error_label.pack(fill="both", expand=True, side="top", ipady=5, ipadx=5)
 
+def keyError001():
+        error_screen_window = Toplevel(window)
+        error_screen_window.title("!!! KeyError 001 !!!")
+        error_screen_window.configure(bg="#f0f0f0")
+        width = 375
+        height = 200
+        x = (error_screen_window.winfo_screenwidth()//2)-(width//2)
+        y = (error_screen_window.winfo_screenheight()//2)-(height//2)
+        error_screen_window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+        error_label = tk.Label(master = error_screen_window)
+        error_label.configure(bg="#ca8888", fg="#9932cc", font=("Roboto, sans-serif", 14, "bold"), wraplength=290,  text="!!! KeyError 001 !!!\n!!! APIKEY Not Found !!!\nPlease enter a valid API Key from OpenweatherMap on line 408!!")
+        error_label.pack(fill="both", expand=True, side="top", ipady=5, ipadx=5)
+
 
 # Attempt at creating a function that gets the city and city temperature 
 # and then displays the city and city temperature and the temperature is used to activate the conversion table
@@ -403,6 +416,8 @@ def checkLiveSelected():
                 scaleError629()    
         elif city == "":
                 cityError642()
+        elif KeyError:
+                keyError001()
         else:
                 searchTemp()
                 breakpoint
