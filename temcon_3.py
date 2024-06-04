@@ -645,6 +645,8 @@ def checkManualSelected():
                 tempError675()
         elif temp == "" and scale == "Choose A Scale":
                 completeError700()
+        elif KeyError:
+                keyError001()
         else:
                 setScaleTemp()
                 breakpoint
@@ -654,6 +656,8 @@ def checkCity():
         city = city_search_entry.get()
         if city == "":
                 cityError642()
+        elif KeyError:
+                keyError001()
         else:
                 search()
                 breakpoint
