@@ -639,14 +639,9 @@ def checkManualSelected():
         scale = scale.get()
         temp = tk.StringVar()
         temp = scaleTemp.get()
-        if scale == "Choose A Scale" and temp != "":
-                scaleError629()    
-        elif temp == "" and scale != "Choose A Scale":
+        if temp == '':
                 tempError675()
-        elif temp == "" and scale == "Choose A Scale":
-                completeError700()
-        elif KeyError:
-                keyError001()
+                return
         else:
                 setScaleTemp()
                 breakpoint
@@ -718,7 +713,10 @@ def setScaleTemp():
         else: 
                 choice = scale.get()
                 temp = scaleTemp.get()
-                if choice == "Kelvin":
+                if choice == 'Choose A Scale':
+                        scaleError629()
+                        return
+                elif choice == "Kelvin":
                         converted_scale_one_labelframe_label.configure(style="convertedScaleSelected.TLabel", text= round(int(temp) * 1, 2), width=7, anchor='center', justify="center")
                         converted_scale_two_labelframe_label.configure(style="convertedScaleLableFrameLableDark.TLabel", text= round(((int(temp) - 273.15) * 1.8) + 32, 2), width=7, anchor='center', justify="center")
                         converted_scale_three_labelframe_label.configure(style="convertedScaleLableFrameLableDark.TLabel", text= round(int(temp) - 273.15, 1), width=7, anchor='center', justify="center")
@@ -794,7 +792,7 @@ temperature_setting_frame = ttk.Frame(master = scaleChoice)
 temperature_setting_frame.configure(style="convertedFrameDark.TFrame")
 temperature_setting_frame.pack(side="top", fill="both", expand=True)
 scaleSet_button = ttk.Button(master = temperature_setting_frame)
-scaleSet_button.configure(style="scaleSetButtonDark.TButton", takefocus=True, command=checkManualSelected, text="Convert")
+scaleSet_button.configure(style="scaleSetButtonDark.TButton", takefocus=True, command=lambda: checkManualSelected(), text="Convert")
 scaleSet_button.pack(fill="x", expand=False, padx=(3, 0), side="right")
 # Scale Temperature Setting ===================================
 scaleTemp = ttk.Entry(master = temperature_setting_frame)
