@@ -384,19 +384,6 @@ def completeError700():
         error_label.configure(bg="#ca8888", fg="#9932cc", font=("Roboto, sans-serif", 14, "bold"), wraplength=290,  text="!!! Error 642 !!!\n!!! City Not Entered !!!\nPlease Choose A Scale and enter a temperature To Convert!!")
         error_label.pack(fill="both", expand=True, side="top", ipady=5, ipadx=5)
 
-def keyError001():
-        error_screen_window = Toplevel(window)
-        error_screen_window.title("!!! KeyError 001 !!!")
-        error_screen_window.configure(bg="#f0f0f0")
-        width = 375
-        height = 200
-        x = (error_screen_window.winfo_screenwidth()//2)-(width//2)
-        y = (error_screen_window.winfo_screenheight()//2)-(height//2)
-        error_screen_window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-        error_label = tk.Label(master = error_screen_window)
-        error_label.configure(bg="#ca8888", fg="#9932cc", font=("Roboto, sans-serif", 14, "bold"), wraplength=290,  text="!!! KeyError 001 !!!\n!!! APIKEY Not Found !!!\nPlease enter a valid API Key from OpenweatherMap on line 408!!")
-        error_label.pack(fill="both", expand=True, side="top", ipady=5, ipadx=5)
-
 
 # Attempt at creating a function that gets the city and city temperature 
 # and then displays the city and city temperature and the temperature is used to activate the conversion table
@@ -405,7 +392,7 @@ def keyError001():
 # https://www.youtube.com/watch?v=VaqYFs7Az50
 
 APIKEY = StringVar()
-APIKEY = " "
+APIKEY = "9f12e670d816b80eb604116aaad1eca8"
 
 def checkLiveSelected():
         scale = tk.StringVar()
@@ -413,11 +400,11 @@ def checkLiveSelected():
         city = tk.StringVar()
         city = live_city_temp_entry.get()
         if scale == "Choose A Scale":
-                scaleError629()    
+                scaleError629()  
+                return  
         elif city == "":
                 cityError642()
-        elif KeyError:
-                keyError001()
+                return
         else:
                 searchTemp()
                 breakpoint
@@ -651,8 +638,7 @@ def checkCity():
         city = city_search_entry.get()
         if city == "":
                 cityError642()
-        elif KeyError:
-                keyError001()
+                return
         else:
                 search()
                 breakpoint
@@ -920,58 +906,62 @@ def open_privacy_window():
 
 # Donation Window
 def open_donate_window():
-        donate_window = Toplevel(window)
-        donate_window.title("Donate")
-        width = 310
-        height = 200
-        x = (donate_window.winfo_screenwidth()//2)-(width//2)
-        y = (donate_window.winfo_screenheight()//2)-(height//2)
-        donate_window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-        donate_window.configure(bg="#f0f0f0")
-        donate_label = Label(donate_window)
-        donate_label.configure(font=("Times New Roman", 11, "bold"),highlightbackground='#ffa500', pady=10, highlightcolor='#deb887', highlightthickness=3, takefocus=True,  background="#ffe4c4", foreground="#5c3608", text="Donate:\nIf you enjoyed this program and would\n like to contribute to our work,\n you can donate by emailing:\ndashWoorkz Sovereign Society:\nEmail: dashwoorkz@dashwoorkz.ca\nor through E-Transfer to:\nLord :Dash: La Londe\nManaging Director\ndash@dashwoorkz.ca")
-        donate_label.pack(fill="both", expand=True)
-
+    donate_window = Toplevel(window)
+    donate_window.title("Donate")
+    width = 400
+    height = 350
+    x = (donate_window.winfo_screenwidth()//2)-(width//2)
+    y = (donate_window.winfo_screenheight()//2)-(height//2)
+    donate_window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+    donate_window.configure(bg="#f0f0f0")
+    donate_label = Label(donate_window)
+    donate_label.configure(font=("Times New Roman", 11, "bold"),highlightbackground='#ffa500', pady=10, highlightcolor='#deb887', highlightthickness=3, takefocus=True,  background="#ffe4c4", foreground="#5c3608", text="Donate:\nIf you enjoyed this program and would\n like to contribute to our work:\n\ndashWoorkz Sovereign Society:\ndashwoorkz@dashwoorkz.ca\n\nE-Transfer:\nLord :Dash: La Londe\nManaging Director:\ndash@dashwoorkz.ca\n\n Bitcoin:\nBTC:38YwKspQ8hdxAmGQUPP7LvXPRucdZURNu5\n\n Merchandise Online:\nhttp://everythingdash.creator-spring.com/")
+    donate_label.pack(fill="both", expand=True)
+    
 # End of Donation Window
 # ===================
 
 # Contact Information Window
 def open_contact_window():
-        contact_window = Toplevel(window)
-        contact_window.title("Contact Us")
-        width = 310
-        height = 200
-        x = (contact_window.winfo_screenwidth()//2)-(width//2)
-        y = (contact_window.winfo_screenheight()//2)-(height//2)
-        contact_window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-        contact_window.configure(bg="#f0f0f0")
-        
-        label_contact = Label(contact_window, text="Contact Information", foreground="#fd3adf", bg="#f7d4f6", font=("Helvetica", 12, "bold"))
-        label_contact.pack(fill="both", expand=True)
+    contact_window = Toplevel(window)
+    contact_window.title("Contact Us")
+    contact_window.geometry("310x200")
+    width = 310
+    height = 220
+    x = (contact_window.winfo_screenwidth()//2)-(width//2)
+    y = (contact_window.winfo_screenheight()//2)-(height//2)
+    contact_window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+    contact_window.configure(bg="#f0f0f0")
+    
+    label_contact = Label(contact_window, text="Contact Information", foreground="#fd3adf", bg="#f7d4f6", font=("Helvetica", 12, "bold"))
+    label_contact.pack(fill="both", expand=True)
 
-        label_society = Label(contact_window, text="dashWoorkZ Sovereign Society", foreground="#4169e1", bg="#99cfe7", font=("Helvetica", 10, "bold"))
-        label_society.pack(fill="both", expand=True)
-        
-        label_email = Label(contact_window, text="Email: dashwoorkz@dashwoorkz.ca", foreground="#4169e1", bg="#99cfe7", font=("Helvetica", 10))
-        label_email.pack(fill="both", expand=True)
-        
-        label_mdirector = Label(contact_window, text="Managing Director:", foreground="#2e8b57", bg="#c4ecc4", font=("Helvetica", 10, "bold"))
-        label_mdirector.pack(fill="both", expand=True)
-        
-        label_mdName = Label(contact_window, text="Lord :Dash: La Londe", foreground="#2e8b57", bg="#c4ecc4", font=("Helvetica", 10))
-        label_mdName.pack(fill="both", expand=True)
+    label_society = Label(contact_window, text="dashWoorkZ Sovereign Society", foreground="#4169e1", bg="#99cfe7", font=("Helvetica", 10, "bold"))
+    label_society.pack(fill="both", expand=True)
+    
+    label_email = Label(contact_window, text="Email: dashwoorkz@dashwoorkz.ca", foreground="#4169e1", bg="#99cfe7", font=("Helvetica", 10))
+    label_email.pack(fill="both", expand=True)
+    
+    label_mdirector = Label(contact_window, text="Managing Director:", foreground="#2e8b57", bg="#c4ecc4", font=("Helvetica", 10, "bold"))
+    label_mdirector.pack(fill="both", expand=True)
+    
+    label_mdName = Label(contact_window, text="Lord :Dash: La Londe", foreground="#2e8b57", bg="#c4ecc4", font=("Helvetica", 10))
+    label_mdName.pack(fill="both", expand=True)
 
-        label_md_email = Label(contact_window, text="Email: dash@dashwoorkz.ca", foreground="#2e8b57", bg="#c4ecc4", font=("Helvetica", 10, "bold"))
-        label_md_email.pack(fill="both", expand=True)
+    label_md_email = Label(contact_window, text="Email: dash@dashwoorkz.ca", foreground="#2e8b57", bg="#c4ecc4", font=("Helvetica", 10, "bold"))
+    label_md_email.pack(fill="both", expand=True)
 
-        label_csDirector = Label(contact_window, text="Community Services Director:", foreground="#c27012", bg="#f3e1c9", font=("Helvetica", 10, "bold"))
-        label_csDirector.pack(fill="both", expand=True)
-        
-        label_csdName = Label(contact_window, text="Lady :Jeanette-Elizabeth: Hiuser", foreground="#c27012", bg="#f3e1c9", font=("Helvetica", 10))
-        label_csdName.pack(fill="both", expand=True)
+    label_csDirector = Label(contact_window, text="Community Services Director:", foreground="#c27012", bg="#f3e1c9", font=("Helvetica", 10, "bold"))
+    label_csDirector.pack(fill="both", expand=True)
+    
+    label_csdName = Label(contact_window, text="Lady :Jeanette-Elizabeth: Hiuser", foreground="#c27012", bg="#f3e1c9", font=("Helvetica", 10))
+    label_csdName.pack(fill="both", expand=True)
 
-        label_cs_email = Label(contact_window, text="Email: jeanette.elizabeth@dashwoorkz.ca", foreground="#c27012", bg="#f3e1c9", font=("Helvetica", 10))
-        label_cs_email.pack(fill="both", expand=True)
+    label_cs_email = Label(contact_window, text="Email: jeanette.elizabeth@dashwoorkz.ca", foreground="#c27012", bg="#f3e1c9", font=("Helvetica", 10))
+    label_cs_email.pack(fill="both", expand=True)
+    
+    label_dwrx = Label(contact_window, text="Visit: http://dashwoorkz.ca", foreground="#c27012", bg="#cae8f3", font=("Helvetica", 16))
+    label_dwrx.pack(fill="both", expand=True, ipady=5)
 
 
 def open_splash_window():
