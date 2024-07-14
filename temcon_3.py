@@ -392,7 +392,7 @@ def completeError700():
 # https://www.youtube.com/watch?v=VaqYFs7Az50
 
 APIKEY = StringVar()
-APIKEY = "9f12e670d816b80eb604116aaad1eca8"
+APIKEY = ""
 
 def checkLiveSelected():
         scale = tk.StringVar()
