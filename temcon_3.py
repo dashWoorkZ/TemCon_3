@@ -21,7 +21,7 @@ x = (window.winfo_screenwidth()//2)-(width//2)
 y = (window.winfo_screenheight()//2)-(height//2)
 window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
 
-window.title("TemCon 3")
+window.title("TemCon TTK 3")
 window.configure(background="burlywood")
 style=ttk.Style()   # ttk Style Library
 menu = tk.Menu(window, background="antiquewhite")
@@ -33,8 +33,27 @@ style.theme_use("clam")
 # Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
 # Everyone is permitted to copy and distribute verbatim copies
 # of this license document, but changing it is not allowed.
-#     You should have received a copy of the GNU General Public License
+# You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+#    Copyright 2024 Lord: Dash: La Londe.
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# In order to use all the functionality of TemCon TTK 3, it is suggested you open an
+# account with OpenWeatherMap at http://openweathermap.org and create your API_KEY,
+# which you can enter on line 399 to use with TemCon3.
 
 # ================================================================================================================================================================
 # ================================================= Start of Conversion Styling =============================================================================
@@ -100,7 +119,7 @@ menu.add_cascade(label ="Apps", menu = apps_menu, foreground="#854c0c", backgrou
 info_menu = tk.Menu(menu, tearoff = False, activeforeground="antiquewhite", activebackground="#5c3608", background="antiquewhite", foreground="#5c3608")
 info_menu.add_command(label = "Lawful Notice", command=lambda: open_privacy_window())
 info_menu.add_command(label = "Contact", command=lambda: open_contact_window())
-info_menu.add_command(label = "Donate", command=lambda: open_donate_window())
+info_menu.add_command(label = "Support", command=lambda: open_support_window())
 menu.add_cascade(label ="Info", menu = info_menu, activeforeground="antiquewhite", activebackground="#5c3608", background="antiquewhite", foreground="#5c3608")
 
 # List of Function Calls
@@ -128,7 +147,7 @@ def store_selected(choice):
         
 
 def getMain():
-        window.geometry("314x347")
+        window.geometry("335x366")
         clearLiveTable()
         liveconv_frame.grid_forget()
         manconv_frame.grid_forget()
@@ -139,7 +158,7 @@ def getMain():
 
 
 def showLive():
-        window.geometry("435x216")
+        window.geometry("415x237")
         clearLiveTable()
         clearLiveWeather()
         manconv_frame.grid_forget()
@@ -152,7 +171,7 @@ def showLive():
 
 
 def showManual():
-        window.geometry("282x292")
+        window.geometry("282x310")
         clearManualTable()
         clearManualWeather()
         liveconv_frame.grid_forget()
@@ -218,27 +237,27 @@ def clearManualWeather():
 temcon_program_frame = tk.Frame(master=window)
 temcon_program_frame.pack(fill="both", expand=False, side="top", anchor="center", ipadx=5)
 tup_frame = tk.Frame(master=temcon_program_frame)
-tup_frame.configure()
+tup_frame.configure
 tup_frame.grid(row=0, column=0, columnspan=4)
 tup_label_title = ttk.Label(tup_frame)
-tup_label_title.configure(text="TEMPERATURE CONVERSION TOOL", style="temconConToolLight.TLabel", anchor="center") 
+tup_label_title.configure(text="TEMPERATURE CONVERSION TOOL \n Live Weather Report", style="temconConToolLight.TLabel", justify="center", anchor="center") 
 tup_label_title.grid(row=0, column=0, columnspan=4, ipadx=5, ipady=5, sticky="ew")
 temcon_frame = tk.Frame(master=tup_frame)
 temcon_frame.configure(bg="#4f788a")
-temcon_labelframe = ttk.LabelFrame(master = temcon_frame, text="TEMCON", height=100, width=150)
+temcon_labelframe = ttk.LabelFrame(master = temcon_frame, text=" TEMCON TTK 3 ", height=100, width=150)
 temcon_labelframe.configure(style="tested.TLabel")
-temcon_labelframe.grid(row=0, column=0, columnspan=2, sticky=tk.N, pady=5, padx=5)
+temcon_labelframe.grid(row=0, column=0, columnspan=2, sticky=tk.N, pady=5)
 
 # ============= Logo in a Canvas ======================#
-temcon_banner = Image.open("imgs/tc2024Logo.png")
+temcon_banner = Image.open("imgs/temcon_logo.png")
 image_ratio = temcon_banner.size[0] / temcon_banner.size[1]
 temconbannertk = ImageTk.PhotoImage(temcon_banner)
-canvas4 = tk.Canvas(temcon_labelframe, background="#219399", width=120, height=100, bd=2, highlightthickness=2, relief="ridge")
+canvas4 = tk.Canvas(temcon_labelframe, background="#219399", width=150, height=100, bd=2, highlightthickness=2, relief="ridge")
 canvas4.grid(row=0, column=0)
-canvas4.create_image(60,50, image = temconbannertk)
+canvas4.create_image(80,55, image = temconbannertk)
 
 # Openweather
-weather_labelframe = ttk.LabelFrame(master =temcon_frame, text="OPENWEATHER", height=90, width=150)
+weather_labelframe = ttk.LabelFrame(master =temcon_frame, text=" OPENWEATHERMAP ", height=90, width=150)
 weather_labelframe.configure(style="tested.TLabel")
 weather_labelframe.grid(row=0, column=2, columnspan=2, sticky=tk.N, pady=5, padx=5)
 
@@ -257,10 +276,10 @@ hero_frame.grid(row=1, column=0, columnspan=4, rowspan=2, sticky="nsew")
 # Sponsored Advertiseing Label
 hero_frame_label = ttk.Label(hero_frame)
 hero_frame_label.configure(style="heroFrameLabelLight.TLabel", font=("Roboto, sans-serif", 7, "bold"), text="Jeanette's Impressions Art\njeanette.elizabeth@dashwoorkz.ca\nCommunity Services Director", justify="center", anchor="center")
-hero_frame_label.grid(row=0, column=0, columnspan=3, ipady=8, padx=8, ipadx=8, sticky="w")
+hero_frame_label.grid(row=0, column=0, columnspan=3, ipady=8, padx=8, ipadx="5",sticky="w")
 
 # ============= Logo in a Canvas ======================#
-jeia_logo = Image.open("imgs/jeia.png")
+jeia_logo = Image.open("imgs/jia_logo.png")
 image_ratio = jeia_logo.size[0] / jeia_logo.size[1]
 jeia_logotk = ImageTk.PhotoImage(jeia_logo)
 canvas5 = tk.Canvas(hero_frame, background="#219399",  width=70, height=50, bd=2, highlightthickness=2, relief="ridge")
@@ -269,10 +288,10 @@ canvas5.create_image(40,30, image = jeia_logotk)
 
 feedback_frame = tk.Frame(master=hero_frame)
 feedback_frame.configure(bg="#4f788a")
-feedback_frame.grid(row=1, column=0, columnspan=4, padx= 2)
+feedback_frame.grid(row=1, column=0, columnspan=4, padx= 10)
 
 # ============= Logo  in a Canvas ======================#
-dss_logo = Image.open("imgs/dss_logo.png")
+dss_logo = Image.open("imgs/dss_logo-80.png")
 image_ratio = dss_logo.size[0] / dss_logo.size[1]
 dss_logotk = ImageTk.PhotoImage(dss_logo)
 canvas6 = tk.Canvas(feedback_frame, background="#219399",  width=90, height=90, bd=2, highlightthickness=2, relief="ridge")
@@ -281,7 +300,7 @@ canvas6.create_image(50,50, image = dss_logotk)
 
 feedback_frame_label = ttk.Label(master=feedback_frame)
 feedback_frame_label.configure(style="heroFrameLabelLight.TLabel", font=("Roboto, sans-serif", 7, "bold"), wraplength=155, anchor="center", justify="center", text="FeedBack:\ndashWoorkZ Sovereign Society would welcome any comments or suggestions.\n Email: dashwoorkz@dashwoorkz.ca")
-feedback_frame_label.grid(row=0, column=1, padx=5, ipadx=10, ipady=5, sticky="w")
+feedback_frame_label.grid(row=0, column=1, padx=10, ipadx=15, ipady=5, sticky="w")
 temcon_frame.grid(row=1, column=0, columnspan=4, rowspan=2, sticky="nsew")
 
 # ================================================================================================================================================================
@@ -446,7 +465,7 @@ def searchTemp():
         # Get the weather icon
         live_city_label.configure(style="livedescLabelLight1.TLabel", text=f"{city}, {country}", anchor="center", justify="center", wraplength=100)
         live_desc_frame_label.configure(style="livedescLabelLight1.TLabel", text= f"{description}", anchor="center", justify="center")
-        window.geometry("415x365")
+        window.geometry("415x383")
         live_report_frame.grid(row=0, column=0, columnspan=4, rowspan=2, sticky="nsew")
         ScaleConverted = convScale.get()
         temp = IntVar()
@@ -455,7 +474,7 @@ def searchTemp():
 
         if ScaleConverted == "Kelvin":
                 convTemp = round(temp * 1, 1)
-                live_temperature_label.configure(style="livedescLabelLight.TLabel", font=("Times New Romant", 20, "bold"), text= f"{convTemp}K", anchor="center")
+                live_temperature_label.configure(style="livedescLabelLight.TLabel", font=("Times New Romant", 20, "bold"), text= f"{convTemp}\u00B0K", anchor="center")
                 converted_temps_one_labelframe_label.configure(style="selectedScaleLableFrameLabelLight.TLabel", text= round(convTemp * 1, 1), width=7, anchor='center', justify="center")
                 converted_temps_two_labelframe_label.configure(style="convertedScaleLableFrameLableLight.TLabel", text= round(((convTemp - 273.15) * 1.8) + 32, 1), width=7, anchor='center', justify="center")
                 converted_temps_three_labelframe_label.configure(style="convertedScaleLableFrameLableLight.TLabel", text= round(convTemp - 273.15, 1), width=7, anchor='center', justify="center")
@@ -465,7 +484,7 @@ def searchTemp():
                 
         elif ScaleConverted == "Fahrenheit":
                 convTemp = round(((temp - 273.15) * 1.8) + 32, 1)
-                live_temperature_label.configure(style="livedescLabelLight.TLabel", font=("Times New Romant", 20, "bold"), text= f"{convTemp}F", anchor="center")
+                live_temperature_label.configure(style="livedescLabelLight.TLabel", font=("Times New Romant", 20, "bold"), text= f"{convTemp}\u00B0F", anchor="center")
                 converted_temps_one_labelframe_label.configure(style="convertedScaleLableFrameLableLight.TLabel", text= round(((convTemp - 32) / 1.79999999) + 273.15, 1), width=7, anchor='center', justify="center")
                 converted_temps_two_labelframe_label.configure(style="selectedScaleLableFrameLabelLight.TLabel", text= round(convTemp * 1, 1), width=7, anchor='center', justify="center")
                 converted_temps_three_labelframe_label.configure(style="convertedScaleLableFrameLableLight.TLabel", text= round((convTemp - 32) * (5/9), 1),  width=7, anchor='center', justify="center")
@@ -475,7 +494,7 @@ def searchTemp():
 
         elif ScaleConverted == "Rankine":
                 convTemp = round(((temp - 273.15) * 1.8) + 491.67, 1)
-                live_temperature_label.configure(style="livedescLabelLight.TLabel", font=("Times New Romant", 20, "bold"), text= f"{convTemp}R", anchor="center")
+                live_temperature_label.configure(style="livedescLabelLight.TLabel", font=("Times New Romant", 20, "bold"), text= f"{convTemp}\u00B0R", anchor="center")
                 converted_temps_one_labelframe_label.configure(style="convertedScaleLableFrameLableLight.TLabel", text= round(((convTemp- 491.67) / 1.79999999) + 273.15, 1), width=7, anchor='center', justify="center")
                 converted_temps_two_labelframe_label.configure(style="convertedScaleLableFrameLableLight.TLabel", text= round(convTemp - 459.67, 1), width=7, anchor='center', justify="center")
                 converted_temps_three_labelframe_label.configure(style="convertedScaleLableFrameLableLight.TLabel", text= round((convTemp - 491.67) / 1.79999999, 1), width=7, anchor='center', justify="center")
@@ -485,7 +504,7 @@ def searchTemp():
 
         elif ScaleConverted == "Celcius":
                 convTemp = round(temp - 273.15, 1)
-                live_temperature_label.configure(style="livedescLabelLight.TLabel", font=("Times New Romant", 20, "bold"), text= f"{convTemp}C", anchor="center")
+                live_temperature_label.configure(style="livedescLabelLight.TLabel", font=("Times New Romant", 20, "bold"), text= f"{convTemp}\u00B0C", anchor="center")
                 converted_temps_one_labelframe_label.configure(style="convertedScaleLableFrameLableLight.TLabel", text= round(convTemp  + 273.15, 1), width=7, anchor='center', justify="center")
                 converted_temps_two_labelframe_label.configure(style="convertedScaleLableFrameLableLight.TLabel", text= round((convTemp  * (9/5)) + 32, 1), width=7, anchor='center', justify="center")
                 converted_temps_three_labelframe_label.configure(style="selectedScaleLableFrameLabelLight.TLabel", text= round(convTemp * 1, 1) , width=7, anchor='center', justify="center")
@@ -614,7 +633,6 @@ city_label.pack(fill="both", expand=True, side="top", anchor="center", ipadx=5)
 temperature_label = ttk.Label(master = weather_frame)
 temperature_label.pack(fill="both", expand=True, side="bottom", ipadx=5)
 manual_frame.pack(fill="both", expand=True, side="top", anchor="center")
-
 description_frame.lower()
 weather_icon_label.lift()
 
@@ -678,8 +696,8 @@ def search():
         weather_icon_label.image = icon
         city_label.configure(style="livedescLabelDark1.TLabel", text=f"{city}, {country}", anchor="center")
         description_frame_label.configure(style="livedescLabelDark1.TLabel", text= f"{description}", anchor="center")
-        temperature_label.configure(style="livedescLabelDark.TLabel", font=("Times New Romant", 30, "bold"), text= f"{round(int(temperature))}C", anchor="center")
-        window.geometry("283x430")
+        temperature_label.configure(style="livedescLabelDark.TLabel", font=("Times New Romant", 30, "bold"), text= f"{round(int(temperature))}\u00B0C", anchor="center")
+        window.geometry("283x447")
         weather_report_frame.grid(row=0, column=0, columnspan=4,sticky="nsew")
         city_search_entry.delete(0, tk.END)
 
@@ -759,7 +777,7 @@ city_search_entry.configure(style="setTempDark.TEntry", justify="center")
 city_search_entry.pack(fill="both", expand=True, side="left", anchor="nw")
 city_search_entry.bind("<FocusIn>", clearManCity)
 citySearch_button = ttk.Button(master = manual_search_frame)
-citySearch_button.configure(style="scaleSetButtonDark.TButton", takefocus=True, command=lambda: checkCity(), text="Search")
+citySearch_button.configure(style="scaleSetButtonDark.TButton", takefocus=True, command=lambda: checkCity(), text="Get Temp")
 citySearch_button.pack(fill="y", expand=True, side="right", anchor="ne")
 # =========  Scale Choice Frame Start =======================
 
@@ -882,7 +900,7 @@ def open_privacy_window():
         lawful_frame = ttk.Frame(master=lawful_privacy_frame)
         lawful_frame.configure(style="lawfulLight.TFrame")
         lawful_frame_label = ttk.Label(master=lawful_frame)
-        lawful_frame_label.configure(style="lawfulLight.TLabel", font=("Times New Roman", 10, "bold"), justify="center", anchor="center", wraplength=290, text="dashWoorkz Sovereign Society\nEstablished: 2023\nTemCon 3\nWeather Report\nand\nTemperature Conversion Tool\nConverts:\n Celcius, Kelvin, Fahrenheit and Rankine")
+        lawful_frame_label.configure(style="lawfulLight.TLabel", font=("Times New Roman", 10, "bold"), justify="center", anchor="center", wraplength=290, text="dashWoorkz Sovereign Society\nEstablished: 2023\nTemCon 3\nLive Weather Report\nand\nTemperature Conversion Tool\nConverts:\n Celcius, Kelvin, Fahrenheit and Rankine")
         lawful_frame_label.pack(fill="x", expand="True", side="top", ipady=5, ipadx=5)
         lawful_frame.pack(fill="both", expand=True)
         gpl_frame = ttk.Frame(master=lawful_privacy_frame)
@@ -904,21 +922,21 @@ def open_privacy_window():
 # End of Lawful Privacy Statement
 # ===================
 
-# Donation Window
-def open_donate_window():
-    donate_window = Toplevel(window)
-    donate_window.title("Donate")
+# Support Window
+def open_support_window():
+    support_window = Toplevel(window)
+    support_window.title("Support")
     width = 400
     height = 350
-    x = (donate_window.winfo_screenwidth()//2)-(width//2)
-    y = (donate_window.winfo_screenheight()//2)-(height//2)
-    donate_window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-    donate_window.configure(bg="#f0f0f0")
-    donate_label = Label(donate_window)
-    donate_label.configure(font=("Times New Roman", 11, "bold"),highlightbackground='#ffa500', pady=10, highlightcolor='#deb887', highlightthickness=3, takefocus=True,  background="#ffe4c4", foreground="#5c3608", text="Donate:\nIf you enjoyed this program and would\n like to contribute to our work:\n\ndashWoorkz Sovereign Society:\ndashwoorkz@dashwoorkz.ca\n\nE-Transfer:\nLord :Dash: La Londe\nManaging Director:\ndash@dashwoorkz.ca\n\n Bitcoin:\nBTC:38YwKspQ8hdxAmGQUPP7LvXPRucdZURNu5\n\n Merchandise Online:\nhttp://everythingdash.creator-spring.com/")
-    donate_label.pack(fill="both", expand=True)
+    x = (support_window.winfo_screenwidth()//2)-(width//2)
+    y = (support_window.winfo_screenheight()//2)-(height//2)
+    support_window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+    support_window.configure(bg="#f0f0f0")
+    support_label = Label(support_window)
+    support_label.configure(font=("Times New Roman", 11, "bold"),highlightbackground='#ffa500', pady=10, highlightcolor='#deb887', highlightthickness=3, takefocus=True,  background="#ffe4c4", foreground="#5c3608", text="Donate:\nIf you enjoyed this program and would\n like to contribute to our work:\n\ndashWoorkz Sovereign Society:\ndashwoorkz@dashwoorkz.ca\n\nE-Transfer:\nLord :Dash: La Londe\nManaging Director:\ndash@dashwoorkz.ca\n\n Bitcoin:\nBTC:38YwKspQ8hdxAmGQUPP7LvXPRucdZURNu5\n\n Merchandise Online:\nhttp://everythingdash.creator-spring.com/")
+    support_label.pack(fill="both", expand=True)
     
-# End of Donation Window
+# End of Support Window
 # ===================
 
 # Contact Information Window
@@ -972,7 +990,7 @@ def open_splash_window():
         splash_window.overrideredirect(True)
         width = 347
         height = 495
-        x = (splash_window.winfo_screenwidth()//2)-(width//2)
+        x = (splash_window.winfo_screenwidth()//2)-(width//2) + 150
         y = (splash_window.winfo_screenheight()//2)-(height//2)
         splash_window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
         splash_window.configure(bg="#f0f0f0")
@@ -1006,26 +1024,28 @@ def open_splash_window():
         temcon_title_frame.configure(bg="#219399")
         tc_frame = tk.Frame(temcon_title_frame)
         # ============= Logo in a Canvas ======================#
-        temcon_logo = Image.open("imgs/tc2024Logo.png")
+        temcon_logo = Image.open("imgs/temcon_logo.png")
         image_ratio = temcon_logo.size[0] / temcon_logo.size[1]
         temcontk = ImageTk.PhotoImage(temcon_logo)
         canvas2 = tk.Canvas(tc_frame, background="burlywood", width=60, height=60, bd=2, highlightthickness=2, relief="ridge")
+        canvas2.create_image((30,30), image = temcontk)
         canvas2.grid(row=0, column=0)
         canvas2.create_image((30,30), image = temcontk)
         tc_frame.grid(row=0, column=0, sticky="nsew")
         tc_title_frame = tk.Frame(temcon_title_frame)
         title_label = ttk.Label(tc_title_frame)
-        title_label.configure(text="TemCon 3", font=("Roboto, sans-serif", 14, "bold"), anchor="center", justify="center", foreground="#448d76", background="#c4ecc4")
+        title_label.configure(text="TemCon TTK 3", font=("Roboto, sans-serif", 14, "bold"), anchor="center", justify="center", foreground="#448d76", background="#c4ecc4")
         title_label.grid(row=0, column=0, sticky="nsew", ipadx=10)
         title_desc_label= ttk.Label(tc_title_frame,text="Weather Reporting\n Temperature Conversion Tool", font=("Times New roman", 10, "bold"), anchor="center", justify="center", foreground="#448d76", background="#c4ecc4")
         title_desc_label.grid(row=1, column=0, sticky="nsew", ipady=3, ipadx=10)
         tc_title_frame.grid(row=0, column=1, columnspan=2, rowspan=2, sticky="nsew")
         dss_frame = tk.Frame(temcon_title_frame)
         # ============= Logo in a Canvas ======================#
-        dss_logo = Image.open("imgs/dss_logo.png")
+        dss_logo = Image.open("imgs/dss_logo-80.png")
         image_ratio = dss_logo.size[0] / dss_logo.size[1]
         dsstk = ImageTk.PhotoImage(dss_logo)
         canvas1 = tk.Canvas(dss_frame, background="burlywood", width=60, height=60, bd=2, highlightthickness=2, relief="ridge")
+        canvas1.create_image((30,30), image = dsstk)
         canvas1.grid(row=0, column=0)
         canvas1.create_image((30,30), image = dsstk)
         dss_frame.grid(row=0, column=3, sticky="nsew")
