@@ -933,7 +933,7 @@ def open_support_window():
     support_window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
     support_window.configure(bg="#f0f0f0")
     support_label = Label(support_window)
-    support_label.configure(font=("Times New Roman", 11, "bold"),highlightbackground='#ffa500', pady=10, highlightcolor='#deb887', highlightthickness=3, takefocus=True,  background="#ffe4c4", foreground="#5c3608", text="Donate:\nIf you enjoyed this program and would\n like to contribute to our work:\n\ndashWoorkz Sovereign Society:\ndashwoorkz@dashwoorkz.ca\n\nE-Transfer:\nLord :Dash: La Londe\nManaging Director:\ndash@dashwoorkz.ca\n\n Bitcoin:\nBTC:38YwKspQ8hdxAmGQUPP7LvXPRucdZURNu5\n\n Merchandise Online:\nhttp://everythingdash.creator-spring.com/")
+    support_label.configure(font=("Times New Roman", 11, "bold"),highlightbackground='#ffa500', pady=10, highlightcolor='#deb887', highlightthickness=3, takefocus=True,  background="#ffe4c4", foreground="#5c3608", text="Donate:\nIf you enjoyed this program and would\n like to contribute to our work:\n\ndashWoorkz Sovereign Society:\ndashwoorkz@dashwoorkz.ca\n\n Buy Me A Coffee:\nhttp://buymeacoffee.com/dashWoorkz:\n\nOnline Merchandise:\nhttp://everythingdash.creator-spring.com/\nhttps://dashwoorkz.ca/everythingDash/")
     support_label.pack(fill="both", expand=True)
     
 # End of Support Window
