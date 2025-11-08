@@ -1,6 +1,6 @@
 # TemCon_3
 The latest addition to our Python Program collection, expanding on TemCon TTK, TemCon TTK 3 utilizes the OpenWeatherMap API to provide a Live Weather Reporting Temperature Conversion tool written in  Python utilizing the  Pillow Library, MessageBox and Requests. TemCon TTK 3 offers a Live Weather Reporting with a Selective Scale Option, Live Weather Reporting with Manual Temperature Conversion option. Using the OpenWeatherMap API, the program will convert temperatures in manual mode that include Kelvin Celcius, Fahrenheit and Rankine, in live mode, the program will convert into Kelvin, Fahrenheit and Rankine and Celcius, scale selection for personalized display.
-
+<img src="imgs/temcon_logo.png">
 For instructions on how to setup TemCon TTK 3 goto https://dashwoorkz.ca/
 
 All Rights Reserved - Without Prejudice 
